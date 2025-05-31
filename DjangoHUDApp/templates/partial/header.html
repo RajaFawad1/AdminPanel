@@ -1,0 +1,125 @@
+<!-- BEGIN #header -->
+<div id="header" class="app-header">
+<!-- Small invisible area at top to trigger header -->
+<div class="header-trigger"></div>
+	{% if appSidebarHide is None %}
+	<!-- BEGIN desktop-toggler -->
+	<div class="desktop-toggler">
+		<button type="button" class="menu-toggler" data-toggle-class="app-sidebar-collapsed" data-dismiss-class="app-sidebar-toggled" data-toggle-target=".app">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
+	<!-- BEGIN desktop-toggler -->
+	
+	<!-- BEGIN mobile-toggler -->
+	<div class="mobile-toggler">
+		<button type="button" class="menu-toggler" data-toggle-class="app-sidebar-mobile-toggled" data-toggle-target=".app">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
+	<!-- END mobile-toggler -->
+	{% endif %}
+	{% if appTopNav is not None and appSidebarHide %}
+	<!-- BEGIN desktop-toggler -->
+	<div class="desktop-toggler">
+		<button type="button" class="menu-toggler">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
+	<!-- BEGIN desktop-toggler -->
+	<!-- BEGIN mobile-toggler -->
+	<div class="mobile-toggler">
+		<button type="button" class="menu-toggler" data-toggle="app-top-nav-mobile">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</div>
+	<!-- END mobile-toggler -->
+	{% endif %}
+	
+	
+	
+	<!-- BEGIN menu-search -->
+	<form class="menu-search" method="POST" name="header_search_form">
+		<div class="menu-search-container">
+			<div class="menu-search-icon"><i class="bi bi-search"></i></div>
+			<div class="menu-search-input">
+				<input type="text" class="form-control form-control-lg" placeholder="Search menu...">
+			</div>
+			<div class="menu-search-icon">
+				<a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app"><i class="bi bi-x-lg"></i></a>
+			</div>
+		</div>
+	</form>
+	<!-- END menu-search -->
+</div>
+<!-- END #header -->
+
+<!-- Add this script after your header HTML -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuTogglers = document.querySelectorAll('.menu-toggler');
+    let hoverCount = 0;
+    
+    menuTogglers.forEach(toggler => {
+        toggler.addEventListener('mouseenter', function() {
+            hoverCount++;
+            
+            // Only toggle on even counts (second, fourth, etc. hover)
+            if (hoverCount % 1 === 0) {
+                const targetClass = this.getAttribute('data-toggle-class');
+                const target = document.querySelector(this.getAttribute('data-toggle-target'));
+                
+                if (targetClass && target) {
+                    target.classList.toggle(targetClass);
+                }
+            }
+        });
+    });
+});
+
+
+</script>
+
+<style>
+.app-header {
+    position: fixed;
+    top: -50px; /* Move it off-screen */
+    left: 0;
+    right: 0;
+    height: 50px; /* Adjust based on your header height */
+    transition: top 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   
+}
+
+/* Show header when hovering over the header area */
+.app-header:hover {
+    top: 0;
+}
+
+/* Create a small invisible area at the top to trigger the header */
+.header-trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px; /* Small area to trigger hover */
+    z-index: 999;
+}
+
+/* Show header when hovering over the trigger area */
+.header-trigger:hover + .app-header,
+.app-header:hover {
+    top: 0;
+}
+
+</style>

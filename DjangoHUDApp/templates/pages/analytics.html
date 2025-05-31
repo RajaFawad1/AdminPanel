@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Bootstrap{% endblock %}
+
+{% block js %}
+	<script src="{% static 'plugins/@highlightjs/cdn-assets/highlight.min.js' %}"></script>
+	<script src="{% static 'js/demo/highlightjs.demo.js' %}"></script>
+	<script src="{% static 'js/demo/sidebar-scrollspy.demo.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<!-- BEGIN container -->
+	<div class="container">
+		<!-- BEGIN row -->
+		<div class="row justify-content-center">
+			<!-- BEGIN col-10 -->
+			<div class="col-xl-11">
+				<!-- BEGIN row -->
+				<div class="row">
+					<!-- BEGIN col-9 -->
+					<div class="col-xl-11">
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">UI KITS</a></li>
+							<li class="breadcrumb-item active">BOOTSTRAP</li>
+						</ul>
+						
+						<h1 class="page-header">
+							Bootstrap <small>page header description goes here...</small>
+						</h1>
+						
+						<hr class="mb-4">
+						
+						
+						<!-- END #badge -->
+						
+						
+						
+						<!-- BEGIN #carousel -->
+						<div id="carousel" class="mb-5">
+							<h4>Carousel</h4>
+							<p>A slideshow component for cycling through elements—images or slides of text—like a carousel. Please read the <a href="https://getbootstrap.com/docs/5.3/components/carousel/" target="_blank">official Bootstrap documentation</a> for the full list of options.</p>
+							<div class="card">
+								<div class="card-body">
+									<div id="carouselExample" class="carousel slide" data-ride="carousel">
+										<ol class="carousel-indicators">
+											<li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+											<li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+											<li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+										</ol>
+										<div class="carousel-inner">
+											<div class="carousel-item active">
+												<img src="{% static 'img/analytics.png' %}" alt="" class="d-block w-100">
+												
+											</div>
+											<div class="carousel-item">
+												<img src="{% static 'img/analytics.png' %}" alt="" class="d-block w-100">
+												
+											</div>
+											<div class="carousel-item">
+												<img src="{% static 'img/analytics.png' %}" alt="" class="d-block w-100">
+		
+											</div>
+										</div>
+										<a class="carousel-control-prev" href="#carouselExample" data-bs-slide="prev">
+											<span class="carousel-control-prev-icon"></span>
+										</a>
+										<a class="carousel-control-next" href="#carouselExample" data-bs-slide="next">
+											<span class="carousel-control-next-icon"></span>
+										</a>
+									</div>
+								</div>
+								<div class="card-arrow">
+									<div class="card-arrow-top-left"></div>
+									<div class="card-arrow-top-right"></div>
+									<div class="card-arrow-bottom-left"></div>
+									<div class="card-arrow-bottom-right"></div>
+								</div>
+								<div class="hljs-container">
+									<pre><code class="xml" data-url="{% static 'data/ui-bootstrap/code-4.json' %}"></code></pre>
+								</div>
+							</div>
+						</div>
+						<!-- END #carousel -->
+						
+					</div>
+					<!-- END col-9-->
+					<!-- BEGIN col-3 -->
+					
+				</div>
+				<!-- END row -->
+			</div>
+			<!-- END col-10 -->
+		</div>
+		<!-- END row -->
+	</div>
+	<!-- END container -->
+{% endblock %}
+
+<style>
+  /* More specific selector to override Bootstrap styles */
+  #carouselExample .carousel-control-prev-icon,
+  #carouselExample .carousel-control-next-icon {
+    filter: brightness(0) invert(1);
+    background-image: none; /* Remove default Bootstrap SVG */
+  }
+  
+  /* Custom white arrow using pseudo-elements */
+  #carouselExample .carousel-control-prev-icon::before,
+  #carouselExample .carousel-control-next-icon::before {
+    content: "←"; /* or "→" for next */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #carouselExample .carousel-control-next-icon::before {
+    content: "→";
+  }
+</style>

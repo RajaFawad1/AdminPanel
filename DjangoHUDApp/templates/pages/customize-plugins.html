@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Form Plugins{% endblock %}
+
+{% block css %}
+	<link href="{% static 'plugins/tag-it/css/jquery.tagit.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-slider/dist/css/bootstrap-slider.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/blueimp-file-upload/css/jquery.fileupload.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/summernote/dist/summernote-lite.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/spectrum-colorpicker2/dist/spectrum.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/select-picker/dist/picker.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/jquery-typeahead/dist/jquery.typeahead.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+	<script src="{% static 'plugins/jquery-migrate/dist/jquery-migrate.min.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+	<script src="{% static 'plugins/moment/min/moment.min.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap-slider/dist/bootstrap-slider.min.js' %}"></script>
+	<script src="{% static 'plugins/jquery-typeahead/dist/jquery.typeahead.min.js' %}"></script>
+	<script src="{% static 'plugins/jquery.maskedinput/src/jquery.maskedinput.js' %}"></script>
+	<script src="{% static 'plugins/tag-it/js/tag-it.min.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/vendor/jquery.ui.widget.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-tmpl/js/tmpl.min.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-load-image/js/load-image.all.min.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-canvas-to-blob/js/canvas-to-blob.min.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-gallery/js/jquery.blueimp-gallery.min.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.iframe-transport.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-process.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-image.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-audio.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-video.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-validate.js' %}"></script>
+	<script src="{% static 'plugins/blueimp-file-upload/js/jquery.fileupload-ui.js' %}"></script>
+	<script src="{% static 'plugins/summernote/dist/summernote-lite.min.js' %}"></script>
+	<script src="{% static 'plugins/spectrum-colorpicker2/dist/spectrum.min.js' %}"></script>
+	<script src="{% static 'plugins/select-picker/dist/picker.min.js' %}"></script>
+	<script src="{% static 'plugins/@highlightjs/cdn-assets/highlight.min.js' %}"></script>
+	<script src="{% static 'js/demo/highlightjs.demo.js' %}"></script>
+	<script src="{% static 'js/demo/form-plugins.demo.js' %}"></script>
+	<script src="{% static 'js/demo/sidebar-scrollspy.demo.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<!-- BEGIN container -->
+	<div class="container">
+		<!-- BEGIN row -->
+		<div class="row justify-content-center">
+			<!-- BEGIN col-10 -->
+			<div class="col-xl-10">
+				<!-- BEGIN row -->
+				<div class="row">
+					<!-- BEGIN col-9 -->
+					<div class="col-xl-9">
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">Design</a></li>
+							<li class="breadcrumb-item active">Customize</li>
+                            <li class="breadcrumb-item active">Plugins</li>
+						</ul>
+						
+						<h1 class="page-header">
+							Form Plugins <small>page header description goes here...</small>
+						</h1>
+						
+						<hr class="mb-4">
+						
+			
+						
+						<!-- BEGIN #selectPicker -->
+						<div id="selectPicker" class="mb-5">
+							<h4>Select picker</h4>
+							<p>Select picker is jQuery plugin for multiselect tag-like picker. Please read the <a href="https://picker.uhlir.dev/" target="_blank">official documentation</a> for the full list of options.</p>
+							<div class="card">
+								<div class="card-body pb-2">
+									<form>
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="mb-3">
+													<label class="form-label">Default <span class="text-danger">*</span></label>
+													<select class="form-control" id="ex-basic">
+														<option>Mustard</option>
+														<option>Ketchup</option>
+														<option>Relish</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-6">
+												<div class="mb-3">
+													<label class="form-label">Multiple SelectBox <span class="text-danger">*</span></label>
+													<select class="selectpicker form-control" id="ex-multiselect" multiple>
+														<optgroup label="Picnic">
+															<option>Mustard</option>
+															<option>Ketchup</option>
+															<option>Relish</option>
+														</optgroup>
+														<optgroup label="Camping">
+															<option>Tent</option>
+															<option>Flashlight</option>
+															<option>Toilet Paper</option>
+														</optgroup>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-6">
+												<div class="mb-3">
+													<label class="form-label">Live Search <span class="text-danger">*</span></label>
+													<select class="selectpicker form-control" id="ex-search" multiple>
+														<option value="1">Mustard</option>
+														<option value="2">Ketchup</option>
+														<option value="3">Relish</option>
+														<option value="4">Tent</option>
+														<option value="5">Flashlight</option>
+														<option value="6">Toilet Paper</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="card-arrow">
+									<div class="card-arrow-top-left"></div>
+									<div class="card-arrow-top-right"></div>
+									<div class="card-arrow-bottom-left"></div>
+									<div class="card-arrow-bottom-right"></div>
+								</div>
+								<div class="hljs-container">
+									<pre><code class="xml" data-url="{% static 'data/form-plugins/code-10.json' %}"></code></pre>
+								</div>
+							</div>
+						</div>
+						<!-- END #bootstrapSelect -->
+						
+						
+					</div>
+					<!-- END col-3 -->
+				</div>
+				<!-- END row -->
+			</div>
+			<!-- END col-10 -->
+		</div>
+		<!-- END row -->
+	</div>
+	<!-- END container -->
+{% endblock %}
+
+{% block outter_content %}
+	{% verbatim %}
+	<!-- BEGIN template-upload -->
+	<script id="template-upload" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+		<tr class="template-upload">
+			<td>
+				<span class="preview d-flex justify-content-center flex-align-center" style="height: 80px"></span>
+			</td>
+			<td>
+				<p class="name mb-1">{%=file.name%}</p>
+				<strong class="error text-danger"></strong>
+			</td>
+			<td>
+				<p class="size mb-2">Processing...</p>
+				<div class="progress progress-sm mb-0 h-10px progress-striped active"><div class="progress-bar bg-theme" style="min-width: 2em; width:0%;"></div></div>
+			</td>
+			<td nowrap>
+				{% if (!i && !o.options.autoUpload) { %}
+					<button class="btn btn-outline-theme btn-sm d-block w-100 start" disabled>
+						<span>Start</span>
+					</button>
+				{% } %}
+				{% if (!i) { %}
+					<button class="btn btn-outline-default btn-sm d-block w-100 cancel mt-2">
+						<span>Cancel</span>
+					</button>
+				{% } %}
+			</td>
+		</tr>
+	{% } %}
+	</script>
+	<!-- END template-upload -->
+	
+	<!-- BEGIN template-download -->
+	<script id="template-download" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+		<tr class="template-download">
+			<td>
+				<span class="preview d-flex justify-content-center flex-align-center" style="height: 80px">
+					{% if (file.thumbnailUrl) { %}
+						<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+					{% } %}
+				</span>
+			</td>
+			<td>
+				<p class="name">
+					{% if (file.url) { %}
+						<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+					{% } else { %}
+						<span>{%=file.name%}</span>
+					{% } %}
+				</p>
+				{% if (file.error) { %}
+					<div><span class="label label-danger">Error</span> {%=file.error%}</div>
+				{% } %}
+			</td>
+			<td>
+				<span class="size">{%=o.formatFileSize(file.size)%}</span>
+			</td>
+			<td nowrap>
+				{% if (file.deleteUrl) { %}
+					<button class="btn btn-outline-danger btn-sm btn-block delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+						<span>Delete</span>
+					</button>
+					<div class="form-check mt-2">
+						<input type="checkbox" id="{%=file.deleteUrl%}" name="delete" value="1" class="form-check-input toggle">
+						<label for="{%=file.deleteUrl%}" class="form-check-label"></label>
+					</div>
+				{% } else { %}
+					<button class="btn btn-outline-default btn-sm d-block w-100 cancel">
+						<span>Cancel</span>
+					</button>
+				{% } %}
+			</td>
+		</tr>
+	{% } %}
+	</script>
+	<!-- END template-download -->
+	{% endverbatim %}
+{% endblock %}

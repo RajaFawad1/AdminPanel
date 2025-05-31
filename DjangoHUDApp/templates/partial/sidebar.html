@@ -1,0 +1,284 @@
+<!-- BEGIN #sidebar -->
+<div id="sidebar" class="app-sidebar">
+    <!-- BEGIN scrollbar -->
+    <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+        
+        <!-- BEGIN profile -->
+        <div class="menu-profile d-flex flex-column align-items-center justify-content-center text-center p-4">
+            <div class="menu-profile-img mb-3">
+                {% load static %}
+                    <img src="{% static '/img/user/profile.jpg' %}" alt="Profile" width="80" height="80" class="rounded-circle border border-3 border-white">
+            </div>
+            <div class="menu-profile-info mb-3">
+                <h4 class="mb-1">John Smith</h4>
+                <small class="text-muted">Administrator</small>
+            </div>
+            
+            <!-- Added icons row under profile -->
+            <div class="d-flex justify-content-center mb-3">
+                <!-- Search icon -->
+                <a href="#" data-toggle-class="app-header-menu-search-toggled" data-toggle-target=".app" 
+                   class="btn btn-sm btn-outline-theme me-2" title="Search">
+                    <i class="bi bi-search"></i>
+                </a>
+                
+                <!-- Notifications icon -->
+                <div class="dropdown">
+                    <a href="#" data-bs-toggle="dropdown" class="btn btn-sm btn-outline-theme position-relative">
+                        <i class="bi bi-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end mt-1 w-300px fs-11px pt-1">
+                        <h6 class="dropdown-header fs-10px mb-1">NOTIFICATIONS</h6>
+                        <div class="dropdown-divider mt-1"></div>
+                        <a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px">
+                                <i class="bi bi-bag text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">NEW ORDER RECEIVED ($1,299)</div>
+                                <div class="small text-inverse text-opacity-50">JUST NOW</div>
+                            </div>
+                        </a>
+                        <a href="#" class="d-flex align-items-center py-10px dropdown-item text-wrap fw-semibold">
+                            <div class="fs-20px w-20px">
+                                <i class="bi bi-person-circle text-theme"></i>
+                            </div>
+                            <div class="flex-1 flex-wrap ps-3">
+                                <div class="mb-1 text-inverse">3 NEW ACCOUNT CREATED</div>
+                                <div class="small text-inverse text-opacity-50">2 MINUTES AGO</div>
+                            </div>
+                        </a>
+                        <hr class="my-0">
+                        <div class="py-10px mb-n2 text-center">
+                            <a href="#" class="text-decoration-none fw-bold">SEE ALL</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Existing buttons -->
+                
+                <a href="/page/login" class="btn btn-sm btn-outline-theme"><i class="fa fa-sign-out-alt"></i></a>
+            </div>
+        </div>
+        <!-- END profile -->
+        
+        <!-- BEGIN menu -->
+       <div class="menu">
+    {% for item in sidebar_menu %}
+        {% if item.is_header %}
+            <div class="menu-header">{{ item.text }}</div>
+        {% else %}
+            <div class="menu-item {% if item.children %}has-sub{% endif %} {% if item.is_active %}active{% endif %}" 
+                 data-menu-id="{{ item.name|default:'' }}">
+                <a href="{% if item.url %}{{ item.url }}{% else %}#{% endif %}" class="menu-link {% if item.is_active %}active-custom-teal{% endif %}">
+                     
+                    <span class="menu-text">{{ item.text }}</span>
+                    {% if item.children %}<span class="menu-caret">{% if item.is_active %}{% else %}{% endif %}</span>{% endif %}
+                </a>
+                {% if item.children %}
+                    <div class="menu-submenu" style="display: {% if item.is_active %}block{% else %}none{% endif %}">
+                        {% for child in item.children %}
+                            <div class="menu-item {% if child.children %}has-sub{% endif %} {% if child.is_active %}active{% endif %}" 
+                                 data-submenu-id="{{ child.name|default:'' }}">
+                                <a href="{% if child.url %}{{ child.url }}{% else %}#{% endif %}" class="menu-link {% if child.is_active %}active-custom-teal{% endif %}">
+                                    <span class="menu-text">{{ child.text }}</span>
+                                    {% if child.children %}<span class="menu-caret">{% if child.is_active %}{% else %}{% endif %}</span>{% endif %}
+                                </a>
+                                {% if child.children %}
+                                    <div class="menu-submenu" style="display: {% if child.is_active %}block{% else %}none{% endif %}">
+                                        {% for subchild in child.children %}
+                                            <div class="menu-item {% if subchild.is_active %}active{% endif %}" 
+                                                 data-subsubmenu-id="{{ subchild.name|default:'' }}">
+                                                <a href="{% if subchild.url %}{{ subchild.url }}{% else %}#{% endif %}" class="menu-link {% if subchild.is_active %}active-custom-teal{% endif %}">
+                                                    <span class="menu-text">{{ subchild.text }}</span>
+                                                </a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+       
+    </div>
+    <!-- END scrollbar -->
+</div>
+<!-- END #sidebar -->
+<!-- BEGIN mobile-sidebar-backdrop -->
+<button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled"></button>
+<!-- END mobile-sidebar-backdrop -->
+
+<style>
+   
+    .btn-outline-theme:hover{
+        background: none !important;
+
+    }
+    /* Style for plus/minus indicators */
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    /* Add this to your existing styles */
+    .menu-caret {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 1;
+        margin-left: auto;
+        transition: transform 0.2s ease;
+    }
+    
+    .menu-caret::before {
+        content: "+";
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .menu-item.active > .menu-link > .menu-caret::before {
+        content: "−";
+    }
+</style>
+
+<script>
+$(document).ready(function() {
+    const storageKey = 'activeMenuState';
+    
+    // Save active state to sessionStorage
+    function saveActiveState(menuId, submenuId = null, subsubmenuId = null) {
+        const state = {
+            menuId: menuId,
+            submenuId: submenuId,
+            subsubmenuId: subsubmenuId,
+            timestamp: new Date().getTime()
+        };
+        sessionStorage.setItem(storageKey, JSON.stringify(state));
+    }
+    
+    // Load active state from sessionStorage
+    const savedState = loadActiveState();
+    if (savedState) {
+        // Level 1 menu
+        const $activeMenu = $(`.menu-item[data-menu-id="${savedState.menuId}"]`);
+        if ($activeMenu.length) {
+            toggleMenu($activeMenu, true);
+            
+            // Level 2 menu
+            if (savedState.submenuId) {
+                const $activeSubmenu = $activeMenu.find(`.menu-item[data-submenu-id="${savedState.submenuId}"]`);
+                if ($activeSubmenu.length) {
+                    toggleMenu($activeSubmenu, true);
+                    
+                    // Level 3 menu
+                    if (savedState.subsubmenuId) {
+                        const $activeSubsubmenu = $activeSubmenu.find(`.menu-item[data-subsubmenu-id="${savedState.subsubmenuId}"]`);
+                        if ($activeSubsubmenu.length) {
+                            toggleMenu($activeSubsubmenu, true);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Unified function to toggle menu open/close
+    function toggleMenu($menu, forceState = null) {
+        const isActive = forceState !== null ? !forceState : $menu.hasClass('active');
+        const $submenu = $menu.find('> .menu-submenu');
+        
+        if (forceState === true || !isActive) {
+            $menu.addClass('active');
+            $submenu.show();
+        } else {
+            $menu.removeClass('active');
+            $submenu.hide();
+            
+            // Also close any child submenus
+            $menu.find('.menu-item.has-sub').removeClass('active');
+            $menu.find('.menu-submenu').hide();
+        }
+    }
+    
+    // Click handler for menu items
+    $('.menu-item.has-sub > .menu-link').on('click', function(e) {
+        e.preventDefault();
+        const $menuItem = $(this).parent();
+        const isActive = $menuItem.hasClass('active');
+        
+        // Close other menus at the same level
+        if (!$menuItem.closest('.menu-submenu').length) {
+            // For top-level menus, close other top-level menus
+            $('.menu-item.has-sub').not($menuItem).not($menuItem.find('.menu-item')).each(function() {
+                toggleMenu($(this), false);
+            });
+        } else {
+            // For submenus, close other submenus at the same level
+            $menuItem.siblings('.has-sub').each(function() {
+                toggleMenu($(this), false);
+            });
+        }
+        
+        // Toggle current menu
+        toggleMenu($menuItem);
+        
+        // Save state
+        saveMenuState($menuItem);
+    });
+    
+    // Function to save menu state
+    function saveMenuState($menuItem) {
+        if ($menuItem.closest('.menu-submenu .menu-submenu').length) {
+            // Level 3
+            const $parentMenu = $menuItem.closest('.menu-item[data-menu-id]');
+            const $parentSubmenu = $menuItem.closest('.menu-item[data-submenu-id]');
+            if ($parentMenu.length && $parentSubmenu.length) {
+                saveActiveState(
+                    $parentMenu.data('menu-id'),
+                    $parentSubmenu.data('submenu-id'),
+                    $menuItem.data('subsubmenu-id')
+                );
+            }
+        } else if ($menuItem.closest('.menu-submenu').length) {
+            // Level 2
+            const $parentMenu = $menuItem.closest('.menu-item[data-menu-id]');
+            if ($parentMenu.length) {
+                saveActiveState(
+                    $parentMenu.data('menu-id'),
+                    $menuItem.data('submenu-id')
+                );
+            }
+        } else {
+            // Level 1
+            saveActiveState($menuItem.data('menu-id'));
+        }
+    }
+    
+    // Close menus when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.menu-item').length && !$(e.target).closest('.menu-submenu').length) {
+            $('.menu-item.has-sub').each(function() {
+                toggleMenu($(this), false);
+            });
+            sessionStorage.removeItem(storageKey);
+        }
+    });
+    
+    // Helper function to load saved state
+    function loadActiveState() {
+        const savedState = sessionStorage.getItem(storageKey);
+        return savedState ? JSON.parse(savedState) : null;
+    }
+});
+</script>

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Form Elements{% endblock %}
+
+{% block js %}
+	<script src="{% static 'plugins/@highlightjs/cdn-assets/highlight.min.js' %}"></script>
+	<script src="{% static 'js/demo/highlightjs.demo.js' %}"></script>
+	<script src="{% static 'js/demo/sidebar-scrollspy.demo.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<!-- BEGIN container -->
+	<div class="container">
+		<!-- BEGIN row -->
+		<div class="row justify-content-center">
+			<!-- BEGIN col-10 -->
+			<div class="col-xl-10">
+				<!-- BEGIN row -->
+				<div class="row">
+					<!-- BEGIN col-9 -->
+					<div class="col-xl-9">
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="#">FORMS</a></li>
+							<li class="breadcrumb-item active">FORM ELEMENTS</li>
+						</ul>
+						
+						<h1 class="page-header">
+							Form Elements <small>page header description goes here...</small>
+						</h1>
+						
+						<hr class="mb-4">
+						
+						<!-- BEGIN #formControls -->
+						<div id="formControls" class="mb-5">
+							<h4>Form controls</h4>
+							<p>Textual form controls—like <code>&lt;input&gt;</code>s, <code>&lt;select&gt;</code>s, and <code>&lt;textarea&gt;</code>s—are styled with the .form-control class. Included are styles for general appearance, focus state, sizing, and more. Please read the <a href="https://getbootstrap.com/docs/5.3/components/forms/" target="_blank">official Bootstrap documentation</a> for the full list of options.</p>
+							<div class="card">
+								<div class="card-body pb-2">
+									<form>
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="form-group mb-3">
+													<label class="form-label" for="exampleFormControlInput1">Text input</label>
+													<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+												</div>
+												<div class="form-group mb-3">
+													<label class="form-label" for="exampleFormControlTextarea1">Textarea</label>
+													<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+												</div>
+												<div class="form-group mb-3">
+													<label class="form-label" for="exampleFormControlFile1">File input</label>
+													<input type="file" class="form-control" id="exampleFormControlFile1">
+												</div>
+											</div>
+											<div class="col-xl-6">
+												<div class="form-group mb-3">
+													<label class="form-label" for="exampleFormControlSelect1">Select dropdown</label>
+													<select class="form-select" id="exampleFormControlSelect1">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+													</select>
+												</div>
+												<div class="form-group mb-3">
+													<label class="form-label" for="exampleFormControlSelect2">Multiple select</label>
+													<select multiple class="form-select" id="exampleFormControlSelect2">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="card-arrow">
+									<div class="card-arrow-top-left"></div>
+									<div class="card-arrow-top-right"></div>
+									<div class="card-arrow-bottom-left"></div>
+									<div class="card-arrow-bottom-right"></div>
+								</div>
+								<div class="hljs-container">
+									<pre><code class="xml" data-url="{% static 'data/form-elements/code-1.json' %}"></code></pre>
+								</div>
+							</div>
+						</div>
+						<!-- END #formControls -->
+						
+						<!-- BEGIN #sizing -->
+						<div id="sizing" class="mb-5">
+    <h4>Sizing</h4>
+    <p>Set heights using classes like <code>.form-control-lg</code> and <code>.form-control-sm</code>.</p>
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-n3">
+                <div class="col-xl-6">
+                    <input class="form-control form-control-lg shadow-none mb-3" type="text" placeholder=".form-control-lg">
+                    <input class="form-control shadow-none mb-3" type="text" placeholder="Default input">
+                    <input class="form-control form-control-sm shadow-none mb-3" type="text" placeholder=".form-control-sm">
+                </div>
+                <div class="col-xl-6">
+                    <select class="form-select form-select-lg shadow-none mb-3">
+                        <option>Large select</option>
+                    </select>
+                    <select class="form-select shadow-none mb-3">
+                        <option>Default select</option>
+                    </select>
+                    <select class="form-select form-select-sm shadow-none mb-3">
+                        <option>Small select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="card-arrow">
+            <div class="card-arrow-top-left"></div>
+            <div class="card-arrow-top-right"></div>
+            <div class="card-arrow-bottom-left"></div>
+            <div class="card-arrow-bottom-right"></div>
+        </div>
+        <div class="hljs-container">
+            <pre><code class="xml" data-url="{% static 'data/form-elements/code-2.json' %}"></code></pre>
+        </div>
+    </div>
+</div>
+						<!-- END #sizing -->
+						
+						
+	
+{% endblock %}

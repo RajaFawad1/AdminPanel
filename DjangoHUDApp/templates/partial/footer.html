@@ -1,0 +1,62 @@
+<!-- Small invisible area at bottom to trigger footer -->
+<div class="footer-trigger"></div>
+
+<!-- BEGIN #footer -->
+<div id="footer" class="app-footer1">
+    <!-- Your footer content here -->
+    <div class="footer-content">
+        <p>Brandname.com, Copyright © 2025. All rights reserved.</p>
+       
+    </div>
+</div>
+<!-- END #footer -->
+
+<style>
+	.app-footer1 {
+    position: fixed;
+    bottom: -60px; /* Move it off-screen */
+	font-size:16px;
+	
+    left: 0;
+    right: 0;
+    height: 50px; /* Adjust based on your footer height */
+    transition: bottom 0.3s ease;
+    z-index: 1000;
+    background:rgb(30, 38, 51);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Small invisible area at bottom to trigger footer */
+.footer-trigger {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px; /* Small area to trigger hover */
+    z-index: 999;
+}
+
+/* Show footer when hovering over trigger or footer */
+.footer-trigger:hover + .app-footer1,
+.app-footer1:hover {
+    bottom: 0;
+}
+
+/* Footer content styling */
+.footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	 flex-direction: column; /* Stack items vertically */
+    
+    text-align: center; /* Center text */
+    gap: 5px; /* Space between elements */
+}
+
+
+</style>
