@@ -1,5 +1,6 @@
 {
     "dev": {
+        "aws_region": "us-east-1",
         "django_settings": "DjangoHUD.settings",
         "exclude": [
             "boto3",
@@ -8,9 +9,9 @@
             "s3transfer",
             "concurrent"
         ],
-        "profile_name": null,
+        "profile_name": "default",
         "project_name": "template-django",
         "runtime": "python3.11",
-        "s3_bucket": "zappa-z4xndmpiz"
+        "s3_bucket": "zappa-rzae10ny2"
     }
 }

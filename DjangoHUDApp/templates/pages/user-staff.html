@@ -300,6 +300,104 @@
             }
             
         }
+
+         @media (max-width: 992px) {
+        .main-container {
+            padding: 0 15px;
+        }
+        
+        .table-controls {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+        }
+        
+        .search-container {
+            width: 100%;
+        }
+        
+        .search-container input {
+            width: 100%;
+        }
+        
+        .action-buttons {
+            width: 100%;
+            justify-content: flex-end;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .data-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .pagination-container {
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .pagination-controls {
+            flex-direction: column;
+            gap: 12px;
+            align-items: stretch;
+        }
+        
+        .pagination-nav {
+            justify-content: center;
+        }
+        
+        .pagination-input {
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .data-table th, 
+        .data-table td {
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+        
+        .expanded-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .entries-per-page, 
+        .search-container {
+            width: 100%;
+        }
+        
+        .entries-per-page select, 
+        .search-container input {
+            width: 100%;
+        }
+        
+        .action-buttons {
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .btn-go {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    
+    /* For very small screens */
+    @media (max-width: 400px) {
+        .data-table th, 
+        .data-table td {
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+        
+        .page-btn {
+            min-width: 28px;
+            padding: 4px 6px;
+        }
+    }
     </style>
 {% endblock %}
 
